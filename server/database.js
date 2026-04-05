@@ -8,7 +8,7 @@ try {
   // Ignore error if setServers fails
 }
 
-const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/todos";
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/todosdb";
 
 const options = {
   serverApi: {
