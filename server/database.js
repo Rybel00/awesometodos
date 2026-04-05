@@ -2,7 +2,11 @@ require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const dns = require('dns');
 
-try { dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']); } catch (e) {}
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch (error) {
+  // Ignore error if setServers fails
+}
 
 const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/todosdb";
 
@@ -15,18 +19,12 @@ const options = {
 };
 
 let client;
-
 const connectToMongoDB = async () => {
-  try {
-    if (!client) {
-      client = await MongoClient.connect(uri, options);
-      console.log("✅ Connected to MongoDB");
-    }
-    return client;
-  } catch (err) {
-    console.error("❌ MongoDB connection error:", err);
-    throw err;
+  if (!client) {
+    client = await MongoClient.connect(uri, options);
+    console.log("Connected to MongoDB");
   }
+  return client;
 };
 
 const getConnectedClient = () => client;
