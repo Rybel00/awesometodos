@@ -1,8 +1,8 @@
 export default function Todo(props) {
-    const { todo, setTodos } = props;
+    const { awesometodos, setTodos } = props;
 
     const updateTodo = async (todoId, todoStatus) => {
-        const res = await fetch(`/api/todos/${todoId}`, {
+        const res = await fetch(`/api/awesometodos/${todoId}`, {
             method: "PUT",
             body: JSON.stringify({ status: todoStatus }),
             headers: {
@@ -22,7 +22,7 @@ export default function Todo(props) {
         };
     };
     const deleteTodo = async (todoId) => {
-        const res = await fetch(`/api/todos/${todoId}`, {
+        const res = await fetch(`/api/awesometodos/${todoId}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -36,15 +36,15 @@ export default function Todo(props) {
         };
     };
     return (
-        <div className="todo">
-            <p className={todo.status ? "todo--completed" : ""}>{todo.todo}</p>
+        <div className="awesometodos">
+            <p className={awesometodos.status ? "awesometodos--completed" : ""}>{awesometodos.todo}</p>
             <div className="mutations">
-                <button className="todo__status"
-                    onClick={() => updateTodo(todo._id, todo.status)}>
-                    {(todo.status) ? "☑" : "☐"}
+                <button className="awesometodos__status"
+                    onClick={() => updateTodo(awesometodos._id, awesometodos.status)}>
+                    {(awesometodos.status) ? "☑" : "☐"}
                 </button>
-                <button className="todo__delete"
-                    onClick={() => deleteTodo(todo._id)}>
+                <button className="awesometodos__delete"
+                    onClick={() => deleteTodo(awesometodos._id)}>
                     🗑
                 </button>
             </div>
