@@ -9,14 +9,14 @@ const getCollection = () => {
   if (!client) {
     throw new Error("Database not connected");
   }
-  const collection = client.db("todosdb").collection("todos");
+  const collection = client.db("awesometodos").collection("awesometodos");
   return collection;
 }
 //==========DATABASE TABLE(todos)====================
 
 // GET /todos
 // GET /todos
-router.get("/todos", async (req, res) => {
+router.get("/awesometodos", async (req, res) => {
   try {
     const collection = getCollection();
     const todos = await collection.find({}).toArray();
@@ -29,7 +29,7 @@ router.get("/todos", async (req, res) => {
 });
 
 // POST /todos
-router.post("/todos", async (req, res) => {
+router.post("/awesometodos", async (req, res) => {
   try {
     const collection = getCollection();
     let { todo } = req.body;
@@ -51,7 +51,7 @@ router.post("/todos", async (req, res) => {
 
 // DELETE /todos/:id
 // DELETE /todos/:id
-router.delete("/todos/:id", async (req, res) => {
+router.delete("/awesometodos/:id", async (req, res) => {
   try {
     const collection = getCollection();
     const _id = new ObjectId(req.params.id);
@@ -67,7 +67,7 @@ router.delete("/todos/:id", async (req, res) => {
 
 // PUT /todos/:id
 // PUT /todos/:id
-router.put("/todos/:id", async (req, res) => {
+router.put("/awesometodos/:id", async (req, res) => {
   try {
     const collection = getCollection();
     const _id = new ObjectId(req.params.id);
