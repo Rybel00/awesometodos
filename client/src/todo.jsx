@@ -2,7 +2,7 @@ export default function Todo(props) {
     const { todo, setTodos } = props;
 
     const updateTodo = async (todoId, todoStatus) => {
-        const res = await fetch(`/api/todo/${todoId}`, {
+        const res = await fetch(/api/todos/${todoId}, {
             method: "PUT",
             body: JSON.stringify({ status: todoStatus }),
             headers: {
@@ -22,7 +22,7 @@ export default function Todo(props) {
         };
     };
     const deleteTodo = async (todoId) => {
-        const res = await fetch(`/api/todo/${todoId}`, {
+        const res = await fetch(/api/todos/${todoId}, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -39,11 +39,11 @@ export default function Todo(props) {
         <div className="todo">
             <p className={todo.status ? "todo--completed" : ""}>{todo.todo}</p>
             <div className="mutations">
-                <button className="awesometodos__status"
+                <button className="todostatus"
                     onClick={() => updateTodo(todo._id, todo.status)}>
                     {(todo.status) ? "☑" : "☐"}
                 </button>
-                <button className="todo__delete"
+                <button className="tododelete"
                     onClick={() => deleteTodo(todo._id)}>
                     🗑
                 </button>
