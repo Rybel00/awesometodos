@@ -26,5 +26,3 @@ Finally, we linked the local branch back to GitHub using:
 'git push --set-upstream origin main'
 
 This version keeps it simple, explains the why, and feels more like a real developer explaining what happened rather than a formal report.
-
-If you want, I can also “humanize” the entire README so it feels more like a portfolio project 👍
