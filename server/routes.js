@@ -13,9 +13,6 @@ const getCollection = () => {
   return collection;
 }
 //==========DATABASE TABLE(todos)====================
-
-// GET /todos
-// GET /todos
 router.get("/todos", async (req, res) => {
   try {
     const collection = getCollection();
@@ -50,7 +47,6 @@ router.post("/todos", async (req, res) => {
 });
 
 // DELETE /todos/:id
-// DELETE /todos/:id
 router.delete("/todos/:id", async (req, res) => {
   try {
     const collection = getCollection();
@@ -65,7 +61,6 @@ router.delete("/todos/:id", async (req, res) => {
   }
 });
 
-// PUT /todos/:id
 // PUT /todos/:id
 router.put("/todos/:id", async (req, res) => {
   try {
